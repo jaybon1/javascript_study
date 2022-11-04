@@ -35,30 +35,30 @@
       // 데이터 반복문    //배열안에 있는 기본속성값  foreach
       array1.forEach((value) => {
         // 자바스크립트로 태그를 만들어서 동적으로 입력
-        // const tempLi = document.createElement("li");
+        const tempLi = document.createElement("li");
 
-        // const tempSpan = document.createElement("span");
-        // tempSpan.innerHTML = value;
+        const tempSpan = document.createElement("span");
+        tempSpan.innerHTML = value;
 
-        // const tempSpan2 = document.createElement("span");
-        // tempSpan2.style.color = "red";
-        // tempSpan2.style.cursor = "pointer";
-        // tempSpan2.onclick = () => deleteItem(value);
-        // tempSpan2.innerHTML = " X";
+        const tempSpan2 = document.createElement("span");
+        tempSpan2.style.color = "red";
+        tempSpan2.style.cursor = "pointer";
+        tempSpan2.onclick = () => deleteItem(value);
+        tempSpan2.innerHTML = " X";
 
-        // tempLi.appendChild(tempSpan);
-        // tempLi.appendChild(tempSpan2);
+        tempLi.appendChild(tempSpan);
+        tempLi.appendChild(tempSpan2);
 
-        // containerDiv.appendChild(tempLi);
+        containerDiv.appendChild(tempLi);
 
-        containerDiv.insertAdjacentHTML(
-          `beforeend`, // beforebegin, afterbegin, beforeend, afterend
-          `<li>
-                    <span>${value}</span>
-                    <span style="color:red;cursor:pointer" onclick="deleteItem('${value}')"> X</span>
+        // containerDiv.insertAdjacentHTML(
+        //   `beforeend`, // beforebegin, afterbegin, beforeend, afterend
+        //   `<li>
+        //             <span>${value}</span>
+        //             <span style="color:red;cursor:pointer" onclick="deleteItem('${value}')"> X</span>
 
-                </li>`
-        );
+        //         </li>`
+        // );
       });
     }
 
