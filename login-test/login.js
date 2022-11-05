@@ -23,9 +23,7 @@ $(function() {
 // 1. 회원가입 버튼 함수 만들기
 function register() {
     // 내용 체크 하기
-    const checkResult = checkJoinFields();
-
-    if(!checkResult){
+    if(!checkJoinFields()){
         return;
     }
     // 회원가입 진행
@@ -57,6 +55,9 @@ function checkJoinFields(){
     // confirm-password
 
     const usernameElement = document.getElementById("username");
+
+    console.log(usernameElement.value)
+
     const emailElement = document.getElementById("email");
     const passwordElement = document.getElementById("password");
     const confirmPasswordElement = document.getElementById("confirm-password");
