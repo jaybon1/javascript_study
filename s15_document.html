@@ -24,14 +24,14 @@
 
     function setLiTag() {
       // 태그를 가져옴
-      const containerDiv = window.document.getElementById("container");
+      const containerUl = window.document.getElementById("container");
 
       // containerDiv.innerHTML = "";
 
       // // 태그의 자식들을 삭제
-      while (containerDiv.hasChildNodes()) {
+      while (containerUl.hasChildNodes()) {
         //노란색 메서드 => 메서드란 >  객체안의 함수
-        containerDiv.removeChild(containerDiv.lastChild);
+        containerUl.removeChild(containerUl.lastChild);
       }
 
       // 데이터 반복문    //배열안에 있는 기본속성값  foreach
@@ -50,12 +50,11 @@
         //   ')"> X</span>' +
         //   "</li>";
 
-        containerDiv.insertAdjacentHTML(
+        containerUl.insertAdjacentHTML(
           `beforeend`, // beforebegin, afterbegin, beforeend, afterend
           `<li>
               <span>${value}</span>
               <span style="color:red;cursor:pointer" onclick="deleteItem('${value}')"> X</span>
-
           </li>`
         );
       });
