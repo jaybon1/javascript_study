@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>안녕</h1>
+    <div id="myDiv" wow="friend" onclick="func()">반가워</div>
+    <div class="my-div first-div">첫번째</div>
+    <div class="my-div second-div">두번째</div>
+  </body>
+
+  <script>
+    // 태그명은 중복가능
+    const h1Tags1 = document.getElementsByTagName("h1");
+    const h1Tags2 = document.querySelectorAll("h1");
+
+    // id는 중복불가능
+    const myDiv1 = document.getElementById("myDiv");
+    const myDiv2 = document.querySelector("#myDiv");
+
+    // class는 중복가능
+    const myDivs1 = document.getElementsByClassName("my-div");
+    const myDivs2 = document.querySelectorAll(".my-div");
+
+    // class명으로 하나만 선택할 시
+    const firstDiv1 = document.getElementsByClassName("first-div")[0];
+    const firstDiv2 = document.querySelector(".first-div");
+
+    // 여러 태그 선택
+    document.querySelectorAll("h1, div").forEach((el) => {
+      console.log(el.innerHTML);
+    });
+
+    // 이벤트 주는 방법
+
+    // 1. 태그에 함수를 바로 주는 방법
+    const func = () => {
+      console.log("myDiv1 클릭");
+    };
+
+    // 2. 태그 변수에 함수를 주입해서 이벤트를 주는 방법
+    myDiv1.onclick = () => {
+      console.log("myDiv1 클릭");
+    };
+
+    myDiv1.onclick = null;
+
+    // 3. 태그 변수에 리스너로 이벤트를 주는 방법
+    myDiv1.addEventListener("click", func);
+    myDiv1.removeEventListener("click", func);
+
+    // 속성 확인 및 부여
+    // 표준속성들은 속성명을 그대로 사용
+    console.log(myDiv1.innerHTML);
+    console.log(myDiv1.id);
+
+    console.log(myDiv1.innerText);
+    myDiv1.innerText = "반가워요";
+
+    // 비표준속성들은 getAttribute로 가져옴
+    console.log(myDiv1.getAttribute("wow"));
+    // 비표준속성들은 setAttribute로 부여함
+    console.log(myDiv1.setAttribute("wow", "sleep"));
+
+    // 태그만들기
+    const divTag = document.createElement("div");
+    divTag.innerText = "태그만들기1";
+    document.body.appendChild(divTag);
+    document.body.insertAdjacentHTML("beforeend", "<div>태그만들기2</div>");
+
+    // 태그 교체
+    const divTag2 = document.createElement("div");
+    divTag2.innerText = "태그교체";
+    document.body.replaceChild(divTag2, divTag);
+
+    // 태그 삭제
+    document.body.removeChild(divTag2);
+
+    // 태그에 스타일 주는 여러 방법
+    // 1. 태그에 직접 스타일 부여
+    myDiv1.style.color = "red";
+    myDiv1.style.backgroundColor = "blue";
+
+    // 클래스 추가 제거
+    myDiv1.className = "my-div";
+    myDiv1.classList.add("third-div");
+    myDiv1.classList.remove("third-div");
+
+    // 태그에 적용된 스타일 가져오기
+    getComputedStyle(myDiv1).color;
+  </script>
+</html>
